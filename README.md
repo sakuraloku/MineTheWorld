@@ -64,5 +64,8 @@ reg_str is a REG String describing data pattern you need,
 str is the string you want to find treasure from.
 It returns list of string you want.
 
+# Writer
+tool to write data into file.
+
 # Samples
 There are some MineTheWorld sample provided in samples directory.
