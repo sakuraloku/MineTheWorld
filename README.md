@@ -16,12 +16,12 @@ To mine treasure out, Reg is provided.
 Now the three tools got together, let's mine the world.
 
 # HttpPage
-One property and four functions are provided:<br/>
+One property and four functions are provided:<br/><br/>
   public static String CODE_MODE = "utf8";<br/>
   public static String getPageSource(String urlStr);<br/>
   public static String getPageSource(String url_str, Map<String,String> headProperty);<br/>
   public static byte[] getPageRawSource(String urlStr);<br/>
-  public static byte[] getPageRawSource(String url_str, Map<String,String> headProperty);<br/>
+  public static byte[] getPageRawSource(String url_str, Map<String,String> headProperty);<br/><br/>
 usually we use getPageSource(String urlStr) to get source of http page by giving url string.
 The function is simple, only need one parameter. After getting data, it will automatically
 transfer to String as CODE_MODE(such as utf-8).
@@ -43,10 +43,10 @@ first proxy
 
 # IProxy
 To get proxy list for ProxyManager, IProxy is designed.
-It is a interface containing three functions as follow:
-  void setMaxParsePageCount(int page_count);
-  void loadProxysFromInternet();
-  List<String> getProxys();
+It is a interface containing three functions as follow:<br/><br/>
+  void setMaxParsePageCount(int page_count);<br/>
+  void loadProxysFromInternet();<br/>
+  List<String> getProxys();<br/><br/>
 We suppose you get proxy list from Internet, so loadProxysFromInternet() is needed.
 Maybe there are lots of http page containing proxys, so setMaxParsePageCount(int page_count)
 is usable to limit too much proxy mining.
@@ -58,8 +58,8 @@ The proxy list is fetched from http://www.proxy360.net/guonei/
 So if you do not have your own IProxy implements, you can try it.
 
 # Reg
-Only one function is provided to deal String by the method of REG.
-  public static List<String> matches(String reg_str, CharSequence str);
+Only one function is provided to deal String by the method of REG.<br/><br/>
+  public static List<String> matches(String reg_str, CharSequence str);<br/><br/>
 reg_str is a REG String describing data pattern you need,
 str is the string you want to find treasure from.
 It returns list of string you want.
