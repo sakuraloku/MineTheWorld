@@ -16,12 +16,12 @@ To mine treasure out, Reg is provided.
 Now the three tools got together, let's mine the world.
 
 # HttpPage
-One property and four functions are provided:
-  public static String CODE_MODE = "utf8";
-  public static String getPageSource(String urlStr);
-  public static String getPageSource(String url_str, Map<String,String> headProperty);
-  public static byte[] getPageRawSource(String urlStr);
-  public static byte[] getPageRawSource(String url_str, Map<String,String> headProperty);
+One property and four functions are provided:<br/>
+  public static String CODE_MODE = "utf8";<br/>
+  public static String getPageSource(String urlStr);<br/>
+  public static String getPageSource(String url_str, Map<String,String> headProperty);<br/>
+  public static byte[] getPageRawSource(String urlStr);<br/>
+  public static byte[] getPageRawSource(String url_str, Map<String,String> headProperty);<br/>
 usually we use getPageSource(String urlStr) to get source of http page by giving url string.
 The function is simple, only need one parameter. After getting data, it will automatically
 transfer to String as CODE_MODE(such as utf-8).
