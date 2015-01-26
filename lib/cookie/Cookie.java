@@ -41,7 +41,7 @@ public class Cookie {
 			}
 			cookieStr = cookieStr.substring(1);
 		}
-		System.out.println("[NOTE]: " + cookieStr);
+		//System.out.println("[NOTE]: " + cookieStr);
 		return cookieStr;
 	}
 }
