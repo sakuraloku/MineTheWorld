@@ -15,7 +15,7 @@ import cookie.Cookie;
 
 
 public class HttpPage {
-	public static String CODE_MODE = "utf8";
+	private static String CODE_MODE = "utf-8";
 	public static Cookie cookie = new Cookie();
 	
 	public static String getPageSource(String urlStr){
@@ -28,11 +28,26 @@ public class HttpPage {
 		if(data == null){
 			return "";
 		}else{
+			String defaultCodeStr = "";
 			try {
-				return new String(data,CODE_MODE);
+				defaultCodeStr = new String(data,CODE_MODE).toLowerCase();
+				int charsetIndex = defaultCodeStr.indexOf("charset");
+				/*
+				 * sample ****charset***=["]_____"*****
+				 */
+				if(charsetIndex >= 0){
+					int codeModeStartIndex = defaultCodeStr.indexOf('=', charsetIndex) + 1;
+					int codeModeEndIndex = defaultCodeStr.indexOf('"', codeModeStartIndex + 1);// find the back "
+					String codeMode = defaultCodeStr.substring(codeModeStartIndex, codeModeEndIndex).replace("\"", "");// remove front "
+					if(!codeMode.equals(CODE_MODE)){
+						defaultCodeStr = new String(data,codeMode);
+					}
+				}
+				
+				return defaultCodeStr;
 			} catch (UnsupportedEncodingException e) {
-				System.out.println("[ERROR]: Parsing data error");
-				return "";
+				System.out.println("[ERROR]: Parse data error");
+				return defaultCodeStr;
 			}
 		}
 	}
