@@ -17,7 +17,7 @@ Now the three tools got together, let's mine the world.
 
 # HttpPage
 One property and four functions are provided:<br/><br/>
-  public static String CODE_MODE = "utf8";<br/>
+  public static String CODE_MODE = "utf-8";<br/>
   public static String getPageSource(String urlStr);<br/>
   public static String getPageSource(String url_str, Map<String,String> headProperty);<br/>
   public static byte[] getPageRawSource(String urlStr);<br/>
@@ -30,6 +30,8 @@ If you don't need string tranfering, you can use function
 The other two functions give you choices to set http head property.
 When the http page you access is coded not by utf-8. Before call above functions, CODE_MODE
 is need to be set such as gbk.
+NOTE: Now HttpPage has ability to identify code mode of http page, and automatically transfer to
+the mode, so you do not have to set code mode manually.
 
 # Cookie
 Cookie is integrated to HttpPage, so you do not need to operate it.
@@ -66,6 +68,9 @@ It returns list of string you want.
 
 # Writer
 tool to write data into file.
+
+# Reader
+tool to read data from file.
 
 # Samples
 There are some MineTheWorld sample provided in samples directory.
