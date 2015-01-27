@@ -28,26 +28,27 @@ public class HttpPage {
 		if(data == null){
 			return "";
 		}else{
-			String defaultCodeStr = "";
+			String decodeStr = "";
 			try {
-				defaultCodeStr = new String(data,CODE_MODE).toLowerCase();
-				int charsetIndex = defaultCodeStr.indexOf("charset");
+				decodeStr = new String(data,CODE_MODE);
+				String lowerCaseDecodeStr = decodeStr.toLowerCase();
+				int charsetIndex = lowerCaseDecodeStr.indexOf("charset");
 				/*
 				 * sample ****charset***=["]_____"*****
 				 */
 				if(charsetIndex >= 0){
-					int codeModeStartIndex = defaultCodeStr.indexOf('=', charsetIndex) + 1;
-					int codeModeEndIndex = defaultCodeStr.indexOf('"', codeModeStartIndex + 1);// find the back "
-					String codeMode = defaultCodeStr.substring(codeModeStartIndex, codeModeEndIndex).replace("\"", "");// remove front "
+					int codeModeStartIndex = lowerCaseDecodeStr.indexOf('=', charsetIndex) + 1;
+					int codeModeEndIndex = lowerCaseDecodeStr.indexOf('"', codeModeStartIndex + 1);// find the back "
+					String codeMode = lowerCaseDecodeStr.substring(codeModeStartIndex, codeModeEndIndex).replace("\"", "");// remove front "
 					if(!codeMode.equals(CODE_MODE)){
-						defaultCodeStr = new String(data,codeMode);
+						decodeStr = new String(data,codeMode);
 					}
 				}
 				
-				return defaultCodeStr;
+				return decodeStr;
 			} catch (UnsupportedEncodingException e) {
 				System.out.println("[ERROR]: Parse data error");
-				return defaultCodeStr;
+				return decodeStr;
 			}
 		}
 	}
