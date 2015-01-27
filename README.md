@@ -29,7 +29,7 @@ If you don't need string tranfering, you can use function
   public static byte[] getPageRawSource(String urlStr);
 The other two functions give you choices to set http head property.
 When the http page you access is coded not by utf-8. Before call above functions, CODE_MODE
-is need to be set such as gbk.
+is need to be set such as gbk.<br/><br/>
 NOTE: Now HttpPage has ability to identify code mode of http page, and automatically transfer to
 the mode, so you do not have to set code mode manually.
 
