@@ -15,7 +15,7 @@ import cookie.Cookie;
 
 
 public class HttpPage {
-	private static String CODE_MODE = "utf-8";
+	public static String CODE_MODE = "utf-8";
 	public static Cookie cookie = new Cookie();
 	
 	public static String getPageSource(String urlStr){
